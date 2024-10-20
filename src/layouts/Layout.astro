@@ -1,0 +1,52 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon.ico">
+    <title>{title} Horizon Graze Studios</title>
+    <link href="/src/styles/cabinet-grotesk.css" rel="stylesheet">
+</head>
+<body>
+    <div class="space-background"></div>
+    <main>
+        <slot />
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</body>
+</html>
+
+<style>
+  h1 {
+    font-family: 'Cabinet Grotesk';
+  }
+    body, html {
+        height: 100%;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    .space-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/assets/space-bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        z-index: -1;
+    }
+
+    main {
+        position: relative;
+        z-index: 1;
+    }
+</style>
